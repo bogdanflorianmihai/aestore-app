@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AE Store</string>
+
+    <plurals name="product_reviews">
+        <item quantity="zero">no reviews yet</item>
+        <item quantity="one">one review</item>
+        <item quantity="other">%d reviews</item>
+    </plurals>
+</resources>

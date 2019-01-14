@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="host"
+            type="ro.ase.ae.ui.products.ProductsFragment" />
+
+        <variable
+            name="viewModel"
+            type="ro.ase.ae.ui.products.ProductsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_nav_up"
+            app:title="@{host.title}" />
+
+        <net.mready.progresslayouts.ProgressFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:loading="@{viewModel.loading}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingTop="12dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </net.mready.progresslayouts.ProgressFrameLayout>
+
+    </LinearLayout>
+
+</layout>
