@@ -20,4 +20,7 @@ class StoreService(
         .ioSubscribe()
         .flatMapObservable { Observable.fromIterable(it) }
 
+    fun getProduct(productId: Long) = productsApi.getProduct(productId)
+        .ioSubscribe()
+
 }

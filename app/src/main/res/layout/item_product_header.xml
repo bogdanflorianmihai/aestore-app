@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ro.ase.ae.ui.products.ProductViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="264dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{item.image}"
+            app:placeholder="@{@drawable/ph_image}"
+            tools:src="@drawable/ph_image" />
+
+        <TextView
+            style="@style/AppTheme.Widget.TextView.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="@{item.name}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            tools:text="Product" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:gravity="end"
+            android:text="@{@plurals/product_reviews(item.reviews.size(), item.reviews.size())}"
+            android:textColor="@color/textDark"
+            android:textSize="15sp"
+            tools:text="review" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:drawableEnd="@drawable/ic_star"
+            android:text="@{item.score + ``}"
+            app:visible="@{item.hasReviews}" />
+
+        <TextView
+            style="@style/AppTheme.Widget.TextView.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="end"
+            android:text="@{item.price}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            tools:text="2300" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="12dp"
+            android:text="@{item.description}"
+            android:textColor="@color/textDark"
+            android:textSize="15sp"
+            tools:text="Description" />
+
+        <TextView
+            style="@style/AppTheme.Widget.TextView.Bold"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/light"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="Reviews"
+            android:textColor="@color/textDark"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</layout>

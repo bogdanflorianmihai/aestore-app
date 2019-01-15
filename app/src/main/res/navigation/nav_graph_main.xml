@@ -21,13 +21,31 @@
     <fragment
         android:id="@+id/productsFragment"
         android:name="ro.ase.ae.ui.products.ProductsFragment"
-        android:label="ProductsFragment">
+        android:label="ProductsFragment"
+        tools:layout="@layout/fragment_products">
         <argument
             android:name="title"
             app:argType="string"
             app:nullable="false" />
         <argument
             android:name="categoryId"
+            app:argType="long"
+            app:nullable="false" />
+        <action
+            android:id="@+id/action_productsFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="ro.ase.ae.ui.products.details.ProductDetailsFragment"
+        android:label="ProductDetailsFragment"
+        tools:layout="@layout/fragment_product_details">
+        <argument
+            android:name="productId"
             app:argType="long"
             app:nullable="false" />
     </fragment>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="ro.ase.ae.ui.products.details.ReviewViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/AppTheme.Widget.TextView.Bold"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="4dp"
+                android:layout_weight="1"
+                android:text="@{item.name}"
+                android:textColor="@color/textDark"
+                android:textSize="18sp"
+                tools:text="Name" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:isIndicator="true"
+                android:progressDrawable="@drawable/rating_bar"
+                android:rating="@{item.score}" />
+
+        </LinearLayout>
+
+        <TextView
+            style="@style/AppTheme.Widget.TextView.Regular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="4dp"
+            android:text="@{item.message}"
+            android:textColor="@color/textDark"
+            android:textSize="16sp"
+            tools:text="Name" />
+
+    </LinearLayout>
+
+</layout>

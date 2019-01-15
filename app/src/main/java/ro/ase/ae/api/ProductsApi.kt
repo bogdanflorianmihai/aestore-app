@@ -9,4 +9,7 @@ interface ProductsApi {
 
     @GET("categories/{categoryId}/products")
     fun getProducts(@Path("categoryId") categoryId: Long): Single<List<Product>>
+
+    @GET("products/{productId}")
+    fun getProduct(@Path("productId") productId: Long): Single<Product>
 }

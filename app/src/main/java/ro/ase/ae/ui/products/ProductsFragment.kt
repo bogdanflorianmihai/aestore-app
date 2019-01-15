@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.Bindable
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import ro.ase.ae.BR
 import ro.ase.ae.R
 import ro.ase.ae.databinding.FragmentProductsBinding
@@ -40,7 +41,12 @@ class ProductsFragment : BaseFragment<FragmentProductsBinding, ProductsViewModel
         }
 
         recyclerAdapter.setItemClickedListener {
-            //todo
+            if (it is ProductViewModel) {
+                val action =
+                    ProductsFragmentDirections.actionProductsFragmentToProductDetailsFragment(it.id)
+
+                findNavController().navigate(action)
+            }
         }
 
         binding.recycler.adapter = recyclerAdapter
