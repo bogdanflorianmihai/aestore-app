@@ -3,6 +3,7 @@ package ro.ase.ae.services
 import io.reactivex.Observable
 import ro.ase.ae.api.CategoriesApi
 import ro.ase.ae.api.ProductsApi
+import ro.ase.ae.models.Review
 import ro.ase.ae.ui.util.ioSubscribe
 import javax.inject.Singleton
 
@@ -21,6 +22,9 @@ class StoreService(
         .flatMapObservable { Observable.fromIterable(it) }
 
     fun getProduct(productId: Long) = productsApi.getProduct(productId)
+        .ioSubscribe()
+
+    fun addReview(review: Review) = productsApi.addReview(review)
         .ioSubscribe()
 
 }

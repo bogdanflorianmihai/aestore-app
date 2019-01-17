@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -64,6 +65,66 @@
                         app:cornerRadius="24dp" />
 
                 </FrameLayout>
+
+                <View
+                    android:id="@+id/bottom_sheet_overlay"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:visible="@{host.bottomSheetOpen}"
+                    tools:visibility="gone" />
+
+                <LinearLayout
+                    android:id="@+id/bottom_sheet"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:clickable="true"
+                    android:elevation="12dp"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    app:behavior_hideable="true"
+                    app:behavior_peekHeight="0dp"
+                    app:layout_behavior="@string/bottom_sheet_behavior">
+
+                    <EditText
+                        android:id="@+id/et_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:hint="Name"
+                        android:singleLine="true"
+                        android:textColor="@color/textDark" />
+
+                    <EditText
+                        android:id="@+id/et_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="Message"
+                        android:maxLines="5"
+                        android:textColor="@color/textDark" />
+
+                    <androidx.appcompat.widget.AppCompatRatingBar
+                        android:id="@+id/rating_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:stepSize="1"
+                        android:progressDrawable="@drawable/rating_bar" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_submit_review"
+                        style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="Submit review"
+                        android:textColor="@color/textDark"
+                        app:cornerRadius="24dp" />
+
+                </LinearLayout>
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

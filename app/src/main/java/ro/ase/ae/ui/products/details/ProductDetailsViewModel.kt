@@ -2,6 +2,7 @@ package ro.ase.ae.ui.products.details
 
 import androidx.databinding.Bindable
 import ro.ase.ae.BR
+import ro.ase.ae.models.Review
 import ro.ase.ae.services.StoreService
 import ro.ase.ae.ui.base.BaseViewModel
 import ro.ase.ae.ui.base.LOADING
@@ -28,7 +29,17 @@ class ProductDetailsViewModel(private val storeService: StoreService) : BaseView
                 this@ProductDetailsViewModel.items = items
                 notifyPropertyChanged(BR.items)
             }, {
+                //todo
+            })
+    }
 
+    fun addReview(productId: Long, name: String, message: String, rating: Int) {
+        disposables += storeService.addReview(Review(productId, name, message, rating))
+            .mainThread()
+            .subscribe({
+                loadProduct(productId)
+            }, {
+                //todo
             })
     }
 }
